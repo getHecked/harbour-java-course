@@ -1,15 +1,9 @@
-package space.harbour.java.hw2;
-
-import java.util.Map;
-import java.util.Random;
-
 public class HashMap {
 
     private static final int SIZE = 16;
     private Entry table[] = new Entry[SIZE];
 
     class Entry {
-
         Book key;
         String value;
         Entry next;
@@ -22,11 +16,9 @@ public class HashMap {
         public String getValue() {
             return value;
         }
-
         public void setValue(String value) {
             this.value = value;
         }
-
         public Book getKey() {
             return key;
         }
@@ -42,9 +34,7 @@ public class HashMap {
     private int getBucketNumber(int hash) {
         return hash & (SIZE - 1);
     }
-
     public void put(Book key, String value) {
-
         int userHash = key.hashCode();
         int hash = getSupplementalHash(userHash);
         int bucket = getBucketNumber(hash);
@@ -75,9 +65,7 @@ public class HashMap {
     public Entry get(Book key) {
 
         int hash = getSupplementalHash(key.hashCode());
-
         int bucket = getBucketNumber(hash);
-
         Entry existingElement = table[bucket];
 
         while (existingElement != null) {
@@ -93,7 +81,6 @@ public class HashMap {
         return null;
     }
 
-    // for testing map
     public static void main(String[] args) {
         HashMap tmhm = new HashMap();
 
